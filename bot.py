@@ -41,20 +41,22 @@ from selenium.webdriver.chrome.service import Service
 
 def crear_driver():
     options = Options()
+    options.binary_location = "/usr/bin/chromium-browser"
+
     options.add_argument("--headless=new")
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1920,1080")
 
-    # Usar Service + ChromeDriverManager (versión compatible con Selenium nuevo)
-    service = Service(ChromeDriverManager().install())
+    service = Service("/usr/bin/chromedriver")
 
     driver = webdriver.Chrome(
         service=service,
         options=options
     )
     return driver
+
 
 
 
