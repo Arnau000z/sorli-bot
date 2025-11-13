@@ -5,6 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
+print(">>> VERSION ACTUAL DEL BOT LOADED")
 
 
 URL = "https://www.sorlisport.com/ca/fitness/reserva"
