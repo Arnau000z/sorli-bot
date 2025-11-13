@@ -36,6 +36,8 @@ def obtener_clases_a_reservar():
     return CLASES.get(traducciones[hoy], [])
 
 
+from selenium.webdriver.chrome.service import Service
+
 def crear_driver():
     options = Options()
     options.add_argument("--headless=new")
@@ -44,11 +46,15 @@ def crear_driver():
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1920,1080")
 
+    # Usar Service + ChromeDriverManager (versión compatible con Selenium nuevo)
+    service = Service(ChromeDriverManager().install())
+
     driver = webdriver.Chrome(
-        ChromeDriverManager().install(),
+        service=service,
         options=options
     )
     return driver
+
 
 
 def login(driver):
